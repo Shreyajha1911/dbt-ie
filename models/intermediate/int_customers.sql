@@ -5,14 +5,14 @@ select
     last_name,
     email,
     country,
-    customer_segment
+    customer_segment,
 from {{ ref('stg_customers')}}
 ),
 
 customer segments as(
-    select *
+    select 
     segment_id,
-    customer_segment
+    customer_segment,
     from{{ ref('segments') }}
 )
 merged as (
@@ -22,7 +22,7 @@ merged as (
     customers.last_name,
     customers.email,
     customers.country,
-    customers.customer_segment
+    customers.customer_segment,
     from customers
     left join customer_segments using (customer_segment)
 
