@@ -12,5 +12,6 @@ select
     barcode,
     status,
     created_date,
+<<<<<<< HEAD
     is_featured,
 from {{source('raw','products')}}    
